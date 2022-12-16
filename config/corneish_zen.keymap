@@ -24,6 +24,7 @@
             ignored-key-positions = <13>;
         };
     };
+};
 
 / {
         keymap {
