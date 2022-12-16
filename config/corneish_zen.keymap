@@ -14,6 +14,16 @@
     //zmk,matrix_transform = &five_column_transform;
   };
 };
+/ {
+      behaviors {
+        swap: swap {
+            compatible = "zmk,behavior-tri-state";
+            label = "SWAPPER";
+            #binding-cells = <0>;
+            bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
+            ignored-key-positions = <13>;
+        };
+    };
 
 / {
         keymap {
@@ -42,7 +52,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &trans &trans &trans &trans &trans &trans &kp LC(N6)  &trans &trans &trans &kp N0 &kp DEL
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &trans &kp LS(TAB) &swapper &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans  &trans &trans &kp LG(C) &kp LG(V) &kp LPAR    &kp RPAR   &trans   &trans &trans    &trans &trans
              &trans     &trans       &kp LPAR    &kp RPAR  &trans   &trans
                         >;
