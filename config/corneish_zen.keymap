@@ -21,7 +21,6 @@
             label = "SWAPPER";
             #binding-cells = <0>;
             bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
-            timeout-ms = <50>;
             ignored-key-positions = <13>;
         };
     };
