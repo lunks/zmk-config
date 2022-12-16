@@ -16,7 +16,7 @@
 };
 / {
       behaviors {
-        swap: swap {
+        swapper: swapper {
             compatible = "zmk,behavior-tri-state";
             label = "SWAPPER";
             #binding-cells = <0>;
@@ -24,9 +24,6 @@
             ignored-key-positions = <13>;
         };
     };
-};
-
-/ {
         keymap {
                 compatible = "zmk,keymap";
 
