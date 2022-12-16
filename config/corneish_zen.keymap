@@ -49,17 +49,17 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans &kp LC(N6)  &trans &trans &trans &kp N0 &kp DEL
-   &trans &kp LS(TAB) &swapper &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &trans &trans &kp LG(W) &trans &trans &kp LG(T) &kp LC(N6)  &trans &trans &trans &kp N0 &kp DEL
+   &trans &kp LS(TAB) &swapper &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp LG(LS(LBKT)) &kp LG(LS(RBKT))
    &trans  &trans &trans &kp LG(C) &kp LG(V) &kp LPAR    &kp RPAR   &trans   &trans &trans    &trans &trans
-             &trans     &trans       &kp LPAR    &kp RPAR  &trans   &trans
+             &trans     &trans       &kp LPAR    &kp RPAR  &kp F5   &kp F6
                         >;
                 };
 
                 symb_layer {
                         label = "SYMBOL";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// |   ~  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    |     |     |     |   |     |     |     |
