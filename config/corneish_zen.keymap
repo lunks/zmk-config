@@ -23,13 +23,13 @@
             bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
             ignored-key-positions = <13>;
         };
-        escnav: esc-navigation-hold-tap {
+        lh_nv: esc-navigation-hold-tap {
             compatible = "zmk,behavior-hold-tap";
             label = "ESCNAV";
             #binding-cells = <0>;
             flavor = "hold-preferred";
             tapping-term-ms = <100>;
-            bindings = <&mo NAVG>, <&kp ESC>;
+            bindings = <&mo>, <&kp>;
         };
     };
         keymap {
@@ -43,10 +43,10 @@
 // | SHFT  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | CTRL  |
 //                    | GUI | NUM | ENT |   | SPC | SYMB  | ALT |
                         bindings = <
-   &kp TAB      &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &escnav      &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT    &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-                     &kp LGUI &mo NUMPAD &kp RET   &kp SPACE &mo SYMBOL &kp RALT
+   &kp TAB          &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &lh_nv NAVG ESC  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT        &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+                      &kp LGUI &mo NUMPAD &kp RET   &kp SPACE &mo SYMBOL &kp RALT
                         >;
                 };
                 navg_layer {
