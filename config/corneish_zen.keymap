@@ -29,7 +29,6 @@
             #binding-cells = <0>;
             flavor = "hold-preferred";
             tapping-term-ms = <100>;
-            quick-tap-ms = <-1>;
             bindings = <&mo NAVG>, <&kp ESC>;
         };
     };
