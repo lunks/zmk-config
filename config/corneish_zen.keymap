@@ -26,7 +26,7 @@
         lh_nv: esc-navigation-hold-tap {
             compatible = "zmk,behavior-hold-tap";
             label = "ESCNAV";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <100>;
             bindings = <&mo>, <&kp>;
