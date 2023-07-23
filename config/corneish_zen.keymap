@@ -16,9 +16,9 @@
 };
 / {
       behaviors {
-        swapper: swapper {
+        swapper: cmd-tab-swapper {
             compatible = "zmk,behavior-tri-state";
-            label = "SWAPPER";
+            label = "CMDTABSWAPPER";
             #binding-cells = <0>;
             bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
             ignored-key-positions = <13>;
@@ -53,7 +53,7 @@
                         label = "NAVG";
                         bindings = <
    &trans      &trans &kp LG(W)    &trans    &trans  &kp LG(T)    &kp LC(N6) &trans   &trans &trans    &kp N0           &kp DEL
-   &trans &kp LS(TAB)  &swapper    &trans    &trans     &trans    &kp LEFT   &kp DOWN &kp UP &kp RIGHT &kp LG(LS(LBKT)) &kp LG(LS(RBKT))
+   &trans &kp  LS(TAB)  &swapper    &trans    &trans     &trans    &kp LEFT   &kp DOWN &kp UP &kp RIGHT &kp LG(LS(LBKT)) &kp LG(LS(RBKT))
    &trans      &trans    &trans &kp LG(C) &kp LG(V)   &kp LPAR    &kp RPAR   &trans   &trans &trans    &trans           &trans
                                    &trans    &kp F8   &kp LPAR    &kp RPAR   &kp F5   &kp F6
                         >;
