@@ -5,8 +5,6 @@
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
 
-
-
 #define BASE 0
 #define NAVG 1
 #define SYMBOL 2
@@ -35,11 +33,14 @@ ZMK_LAYER(default,
      //                                           ╰─────────────┴──── ────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
+#define LEFT_TAB &kp LG(LS(LBKT))
+#define RIGHT_TAB &kp LG(LS(RBKT))
+
 ZMK_LAYER(navigational,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &trans        &trans        &kp LG(W)     &trans        &trans        &kp LG(T)         &kp LC(N6)    &trans        &trans        &trans        &kp N0           &kp DEL     
+        &trans        &trans        &kp LG(W)     &trans        &trans        &kp LG(T)         &kp LC(N6)    &trans        &trans        &trans        &kp N0        &kp DEL         
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &trans        &kp LS(TAB)   &swapper      &trans        &trans        &trans            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp LG(LS(LBKT)) &kp LG(LS(RBKT))
+        &trans        &kp LS(TAB)   &swapper      &trans        &trans        &trans            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     LEFT_TAB      RIGHT_TAB      
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &trans        &trans        &trans        &kp LG(C)     &kp LG(V)     &kp LPAR          &kp RPAR      &trans        &trans        &trans        &trans        &trans         
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
