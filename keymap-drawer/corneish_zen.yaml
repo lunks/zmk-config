@@ -136,9 +136,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ^
-  - '&'
-  - '*'
+  - '7'
+  - '8'
+  - '9'
   - (
   - )
   - {t: ▽, type: trans}
