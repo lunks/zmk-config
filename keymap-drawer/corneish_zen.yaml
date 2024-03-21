@@ -170,5 +170,5 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - '0'
-  - {t: ▽, type: trans}
+  - '&clear_tmux'
   - {t: ▽, type: trans}
