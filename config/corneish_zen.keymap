@@ -24,7 +24,7 @@ ZMK_BEHAVIOR(nav, hold_tap,
 ZMK_BEHAVIOR(clear_tmux, macro,
     wait-ms = <100>;
     tap-ms = <5>;
-    bindings = <&kp F1 &kp C>;
+    bindings = <&kp F1 &kp V>;
 )
 
 ZMK_LAYER(base,
