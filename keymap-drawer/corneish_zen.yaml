@@ -73,19 +73,19 @@ layers:
   - {t: ▽, type: trans}
   - LG(C)
   - LG(V)
-  - (
-  - )
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - F8
-  - (
-  - )
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - F5
   - F6
+  - F7
+  - F8
+  - {t: ▽, type: trans}
   symbol:
   - '~'
   - '!'
