@@ -46,33 +46,33 @@ layers:
   nav:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LG(W)
+  - Gui+ W
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LG(T)
-  - LC(6)
+  - Gui+ T
+  - Ctl+ 6
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '0'
   - DEL
   - {type: held}
-  - LS(TAB)
+  - Sft+ TAB
   - '&swapper'
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - F1
   - {t: ▽, type: trans}
   - LEFT
   - DOWN
   - UP
   - RIGHT
-  - LG(LS(LBKT))
-  - LG(LS(RBKT))
+  - Gui+Sft+ [
+  - Gui+Sft+ ]
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LG(C)
-  - LG(V)
+  - Gui+ C
+  - Gui+ V
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
