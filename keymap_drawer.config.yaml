@@ -1,0 +1,4 @@
+# Used by .github/workflows/draw-keymaps.yml (keymap-drawer >= 0.18).
+# zmk-helpers is a west module: the workflow's `west update` puts it at the repo root.
+parse_config:
+  zmk_additional_includes: ["zmk-helpers/include"]
