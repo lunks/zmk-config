@@ -1,4 +1,4 @@
-layout: {qmk_keyboard: corne_rotated, qmk_layout: LAYOUT_split_3x6_3}
+layout: {zmk_keyboard: corneish_zen}
 layers:
   base:
   - TAB
@@ -46,18 +46,18 @@ layers:
   nav:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Gui+ W
+  - Gui+W
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Gui+ T
-  - Ctl+ 6
+  - Gui+T
+  - Ctl+6
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '0'
   - DEL
   - {type: held}
-  - Sft+ TAB
+  - Sft+TAB
   - '&swapper'
   - {t: ▽, type: trans}
   - F1
@@ -66,13 +66,13 @@ layers:
   - DOWN
   - UP
   - RIGHT
-  - Gui+Sft+ [
-  - Gui+Sft+ ]
+  - Gui+Sft+[
+  - Gui+Sft+]
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Gui+ C
-  - Gui+ V
+  - Gui+C
+  - Gui+V
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -154,7 +154,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&bootloader'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -165,7 +165,7 @@ layers:
   - '3'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&bootloader'
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
