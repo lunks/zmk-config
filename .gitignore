@@ -1,6 +1,7 @@
 build/
 zmk/
-zephyr/
+zephyr/*
+!zephyr/module.yml
 modules/
 tools/
 .west/

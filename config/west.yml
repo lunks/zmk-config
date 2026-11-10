@@ -1,11 +1,17 @@
 manifest:
   remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
   projects:
+    # Pinned to a main commit: v0.3 predates Zephyr 4.1 / HWMv2 Zen boards.
     - name: zmk
-      remote: urob
-      revision: main
+      remote: zmkfirmware
+      revision: 4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85
       import: app/west.yml
+    - name: zmk-helpers
+      remote: urob
+      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98
   self:
     path: config
