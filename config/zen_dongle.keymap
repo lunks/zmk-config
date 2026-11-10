@@ -1,0 +1,2 @@
+// Dongle (central, no keys): same keymap as the Zen halves.
+#include "corneish_zen.keymap"

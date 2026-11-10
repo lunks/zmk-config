@@ -1,3 +1,25 @@
 include:
+  # Halves: both peripherals, the dongle is the central
   - board: corneish_zen_left//zmk
+    artifact-name: corneish_zen_left_peripheral
+    # Same widget set as the right half; the layer/output widgets need the central's keymap/endpoint code and fail to link on a peripheral
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_CUSTOM_WIDGET_OUTPUT_STATUS=n -DCONFIG_CUSTOM_WIDGET_LAYER_STATUS=n -DCONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS=y
   - board: corneish_zen_right//zmk
+    artifact-name: corneish_zen_right
+  # Dongle: nice!nano v2 (or clone)
+  - board: nice_nano//zmk
+    shield: zen_dongle
+    artifact-name: zen_dongle
+  # Pairing reset, flash to all three boards first
+  - board: corneish_zen_left//zmk
+    shield: settings_reset
+    artifact-name: settings_reset_zen_left
+  - board: corneish_zen_right//zmk
+    shield: settings_reset
+    artifact-name: settings_reset_zen_right
+  - board: nice_nano//zmk
+    shield: settings_reset
+    artifact-name: settings_reset_nice_nano
+  # Fallback: left half as central, no dongle (revert path, see docs)
+  - board: corneish_zen_left//zmk
+    artifact-name: corneish_zen_left_central
