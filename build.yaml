@@ -1,16 +1,25 @@
 include:
-  # Halves: both peripherals, the dongle is the central
+  # --- Dongle mode: both halves are peripherals, the dongle is the central ---
+  # Same widget set as the right half; the layer/output widgets need the central's keymap/endpoint code and fail to link on a peripheral
+  # 2M PHY: halves default to 1M under ZMK_BLE_EXPERIMENTAL_CONN; the dongle link can use 2M (less radio time, ~3 dB less sensitivity)
   - board: corneish_zen_left//zmk
     artifact-name: corneish_zen_left_peripheral
-    # Same widget set as the right half; the layer/output widgets need the central's keymap/endpoint code and fail to link on a peripheral
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_CUSTOM_WIDGET_OUTPUT_STATUS=n -DCONFIG_CUSTOM_WIDGET_LAYER_STATUS=n -DCONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS=y
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_CUSTOM_WIDGET_OUTPUT_STATUS=n -DCONFIG_CUSTOM_WIDGET_LAYER_STATUS=n -DCONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS=y -DCONFIG_BT_CTLR_PHY_2M=y
   - board: corneish_zen_right//zmk
     artifact-name: corneish_zen_right
-  # Dongle: nice!nano v2 (or clone)
+    cmake-args: -DCONFIG_BT_CTLR_PHY_2M=y
+  # Dongle: nice!nano v2 (or clone); options in config/zen_dongle.conf
   - board: nice_nano//zmk
     shield: zen_dongle
     artifact-name: zen_dongle
-  # Pairing reset, flash to all three boards first
+
+  # --- Standalone mode: left half as central, no dongle (revert path, see docs) ---
+  # Stays on 1M PHY: the same radio also serves the Mac host link
+  - board: corneish_zen_left//zmk
+    artifact-name: corneish_zen_left_central
+    cmake-args: -DCONFIG_ZEN_SPLIT_AUTO_UNPAIR_ON_KEY_MISMATCH=y -DCONFIG_ZMK_SPLIT_BLE_PREF_LATENCY=99
+
+  # --- Pairing reset: flash to both halves (and the dongle) before switching modes ---
   - board: corneish_zen_left//zmk
     shield: settings_reset
     artifact-name: settings_reset_zen_left
@@ -20,6 +29,24 @@ include:
   - board: nice_nano//zmk
     shield: settings_reset
     artifact-name: settings_reset_nice_nano
-  # Fallback: left half as central, no dongle (revert path, see docs)
+
+  # --- Range test: USB logging builds of the two centrals, see docs/range-test.md ---
+  - board: nice_nano//zmk
+    shield: zen_dongle
+    snippet: zmk-usb-logging
+    artifact-name: zen_dongle_log
   - board: corneish_zen_left//zmk
-    artifact-name: corneish_zen_left_central
+    snippet: zmk-usb-logging
+    artifact-name: corneish_zen_left_central_log
+    cmake-args: -DCONFIG_ZEN_SPLIT_AUTO_UNPAIR_ON_KEY_MISMATCH=y -DCONFIG_ZMK_SPLIT_BLE_PREF_LATENCY=99
+
+  # --- Opt-in: e-paper display off (same roles as above) ---
+  - board: corneish_zen_left//zmk
+    artifact-name: corneish_zen_left_central_nodisplay
+    cmake-args: -DCONFIG_ZEN_SPLIT_AUTO_UNPAIR_ON_KEY_MISMATCH=y -DCONFIG_ZMK_SPLIT_BLE_PREF_LATENCY=99 -DCONFIG_ZMK_DISPLAY=n
+  - board: corneish_zen_left//zmk
+    artifact-name: corneish_zen_left_peripheral_nodisplay
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_BT_CTLR_PHY_2M=y -DCONFIG_ZMK_DISPLAY=n
+  - board: corneish_zen_right//zmk
+    artifact-name: corneish_zen_right_nodisplay
+    cmake-args: -DCONFIG_BT_CTLR_PHY_2M=y -DCONFIG_ZMK_DISPLAY=n

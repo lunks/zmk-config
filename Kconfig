@@ -3,3 +3,12 @@ DT_COMPAT_ZMK_BEHAVIOR_TRI_STATE := zmk,behavior-tri-state
 config ZMK_BEHAVIOR_TRI_STATE
         bool
         default $(dt_compat_enabled,$(DT_COMPAT_ZMK_BEHAVIOR_TRI_STATE))
+
+config ZEN_SPLIT_AUTO_UNPAIR_ON_KEY_MISMATCH
+    bool "Clear a stale split bond when a split peripheral reports a missing key"
+    depends on ZMK_SPLIT && ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Out-of-tree port of zmkfirmware/zmk#3377. On a split central, if the security
+      exchange with a peripheral fails with BT_SECURITY_ERR_PIN_OR_KEY_MISSING, drop the
+      bond and disconnect so the next advertising window re-pairs from scratch.
+      Needs the peripheral to accept re-pairing (ZMK_BLE_EXPERIMENTAL_SEC, already on).
