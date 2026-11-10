@@ -12,3 +12,27 @@ config ZEN_SPLIT_AUTO_UNPAIR_ON_KEY_MISMATCH
       exchange with a peripheral fails with BT_SECURITY_ERR_PIN_OR_KEY_MISSING, drop the
       bond and disconnect so the next advertising window re-pairs from scratch.
       Needs the peripheral to accept re-pairing (ZMK_BLE_EXPERIMENTAL_SEC, already on).
+
+config ZEN_SPLIT_BLE_IDLE_PARAMS
+    bool "EXPERIMENTAL: slower split connection parameters while idle (port of zmk#3182)"
+    depends on ZMK_SPLIT && ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Off by default. Needs a Zephyr with the controller fix from zmkfirmware/zephyr#51 on
+      every board (central and peripherals), otherwise a peripheral can assert on the update.
+      Brief window (~0.6-1 s) of possible misordered keys when coming out of idle.
+
+if ZEN_SPLIT_BLE_IDLE_PARAMS
+
+config ZEN_SPLIT_BLE_IDLE_INT
+    int "Idle connection interval (1.25 ms units)"
+    default 18
+
+config ZEN_SPLIT_BLE_IDLE_LATENCY
+    int "Idle peripheral latency"
+    default 10
+
+config ZEN_SPLIT_BLE_IDLE_TIMEOUT
+    int "Idle supervision timeout (10 ms units)"
+    default 400
+
+endif # ZEN_SPLIT_BLE_IDLE_PARAMS

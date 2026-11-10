@@ -50,3 +50,12 @@ include:
   - board: corneish_zen_right//zmk
     artifact-name: corneish_zen_right_nodisplay
     cmake-args: -DCONFIG_BT_CTLR_PHY_2M=y -DCONFIG_ZMK_DISPLAY=n
+
+  # --- Opt-in EXPERIMENTAL: slower split params while idle (port of zmk#3182), see docs/dongle-migration.md ---
+  - board: corneish_zen_left//zmk
+    artifact-name: corneish_zen_left_central_idle_exp
+    cmake-args: -DCONFIG_ZEN_SPLIT_AUTO_UNPAIR_ON_KEY_MISMATCH=y -DCONFIG_ZMK_SPLIT_BLE_PREF_LATENCY=99 -DCONFIG_ZEN_SPLIT_BLE_IDLE_PARAMS=y
+  - board: nice_nano//zmk
+    shield: zen_dongle
+    artifact-name: zen_dongle_idle_exp
+    cmake-args: -DCONFIG_ZEN_SPLIT_BLE_IDLE_PARAMS=y
